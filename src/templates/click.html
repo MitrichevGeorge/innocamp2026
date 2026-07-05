@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #454F74;
+            color: #B9D7F6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100%;
+
+            font-family: "Courier Prime", monospace;
+            font-weight: 400;
+            min-height: 100vh;
+        }
+
+        .button{
+            padding: 10px 30px;
+            border-radius: 100px;
+            background-color: #8d7591;
+            border: 0;
+            font-family: "Courier Prime", monospace;
+            font-weight: 600;
+            font-size: 20px;
+            color: #B9D7F6;
+
+            cursor: pointer;
+            transition: transform 0.1s ease; 
+        }
+        .button:hover{
+            background-color: #B9D7F6;
+            color: #8d7591;
+        }
+        .button:active {
+            transform: scale(0.9); 
+        }
+
+        .center{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1{
+            font-size: 50px;
+        }
+        .number{
+            background-color: #886d8d;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+        }
+        .glowing-text {
+            animation: rainbow-glow 4s infinite linear;
+        }
+
+        @keyframes rainbow-glow {
+        0% {
+            text-shadow: 
+            0 0 10px rgba(255, 0, 128, 0.7),
+            0 0 20px rgba(255, 0, 128, 0.5),
+            0 0 40px rgba(255, 0, 128, 0.3);
+        }
+        33% {
+            text-shadow: 
+            0 0 10px rgba(0, 255, 255, 0.7),
+            0 0 20px rgba(0, 255, 255, 0.5),
+            0 0 40px rgba(0, 255, 255, 0.3);
+        }
+        66% {
+            text-shadow: 
+            0 0 10px rgba(0, 255, 0, 0.7),
+            0 0 20px rgba(0, 255, 0, 0.5),
+            0 0 40px rgba(0, 255, 0, 0.3);
+        }
+        100% {
+            text-shadow: 
+            0 0 10px rgba(255, 0, 128, 0.7),
+            0 0 20px rgba(255, 0, 128, 0.5),
+            0 0 40px rgba(255, 0, 128, 0.3);
+        }
+        }
+        p{
+            text-align: center;
+            color: #dcb6e2; 
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>Clicker</h1>
+        <div class="number">
+            <p class="glowing-text">{{ value }}</p>
+        </div>
+        <form method="POST">
+            <input type="submit" value="Click" class="button">
+        </form>
+    </div>
+</body>
