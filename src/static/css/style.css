@@ -1,0 +1,11 @@
+body{
+    background: #454F74;
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    color: #CFD8DF;
+}
+
+header{
+    width: 100%;
+    position: sticky;
+}

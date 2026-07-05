@@ -1,0 +1,4 @@
+flask
+uvicorn
+jinja2
+asgiref
