@@ -35,4 +35,18 @@ def shop():
 def settings():
     return render_template("settings.html", tab=4)
 
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if username == "q" and password == "123":
+            return redirect(url_for('products'))
+        else:
+            error_text = "Неверный логин или пароль"
+            return render_template('login.html', error=error_text)
+        
+    return render_template("login.html")
+
 asgi_app = WsgiToAsgi(app)
