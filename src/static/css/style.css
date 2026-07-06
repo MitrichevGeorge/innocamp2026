@@ -1,11 +1,143 @@
 body{
-    background: #454F74;
-    font-family: "Courier Prime", monospace;
+    background: #FFFFF0;
+    font-family: "Comfortaa", sans-serif;
     font-weight: 400;
-    color: #CFD8DF;
+    color: #724E4A;
+    display: flex;
+    margin: 0;  
 }
 
-header{
+.bottom-bar{
+    bottom: 0;
+    position: fixed;
     width: 100%;
-    position: sticky;
+    display: flex;
+    flex-direction: row;
+    background-color: #A5AF78;
+    height: 60px;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    padding-bottom: 12px;
+    padding-top: 15px;
+    padding: 20px;
+}
+
+.nav-item.active {
+    background-color: #A5AF78;
+    height: 80px; 
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding-bottom: 15px;
+}
+
+.nav-icon img {
+    display: block;
+    width: auto;
+}
+
+.nav-icon.active {
+    padding: 10px;
+    padding-top: 20px;
+}
+
+h1{
+    font-size: 24px;
+}
+
+main{
+    width: 100%;
+    padding: 20px;
+}
+
+
+
+.panel {
+    display: flex;
+    flex-direction: row;
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    height: 78px;
+    align-items: center;
+    padding: 0 30px;
+    width: calc(100% - 60px);
+    margin-bottom: 10px;
+}
+
+.panel > p:last-child {
+    margin-left: auto;
+}
+
+.typeicon{
+    width: 33px;
+    height: 33px;
+    margin-right: 15px; 
+    filter: brightness(0) saturate(100%) invert(32%) sepia(10%) saturate(1454%) hue-rotate(320deg) brightness(96%) contrast(85%);
+}
+
+.field{
+    border-radius: 50px;;
+}
+
+
+
+.addform {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.addform .field {
+    border: none;
+    outline: none;
+    background-color: #D9D9D9;
+    font-family: "Comfortaa", sans-serif;
+    color: #724E4A;
+    font-size: 16px;
+    height: 45px;
+    border-radius: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#fridge-product-input {
+    flex-grow: 2;
+    margin-right: 15px;
+}
+
+#fridge-quantity-input {
+    width: 100px;
+    margin-right: 15px;
+}
+
+.addform button.field {
+    background: none;
+    padding: 0;
+    height: 33px;
+    width: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0;
+    margin-left: auto;
+}
+
+.addform .typeicon {
+    margin-right: 0;
+    transition: transform 0.2s ease;
+}
+
+.addform button.field:hover .typeicon {
+    transform: scale(1.1);
 }

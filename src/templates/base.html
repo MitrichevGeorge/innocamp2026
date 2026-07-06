@@ -3,18 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} | AST</title>
+    <title>{% block title %}{% endblock %} | GYD</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="container">
-    <header>Header</header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-    <footer></footer>
+    <footer class="bottom-bar">
+        {% if tab == 1 %}
+            <a href="/products" class="nav-item active">
+                <span class="nav-icon active">
+                    <img src="{{ url_for('static', filename='images/bar/frige-big.svg') }}">
+                </span>
+            </a>
+        {% else %}
+            <a href="/products" class="nav-item">
+                <span class="nav-icon">
+                    <img src="{{ url_for('static', filename='images/bar/frige-small.svg') }}">
+                </span>
+            </a>
+        {% endif %}
+
+        
+        {% if tab == 2 %}
+        <a href="/schedule" class="nav-item active">
+            <span class="nav-icon active">
+                <img src="{{ url_for('static', filename='images/bar/calendar-big.svg') }}">
+            </span>
+        </a>
+        {% else %}
+        <a href="/schedule" class="nav-item">
+            <span class="nav-icon">
+                <img src="{{ url_for('static', filename='images/bar/calendar-small.svg') }}">
+            </span>
+        </a>
+        {% endif %}
+
+        {% if tab == 3 %}
+        <a href="/shop" class="nav-item active">
+            <span class="nav-icon active">
+                <img src="{{ url_for('static', filename='images/bar/basket-big.svg') }}">
+            </span>
+        </a>
+        {% else %}
+        <a href="/shop" class="nav-item">
+            <span class="nav-icon">
+                <img src="{{ url_for('static', filename='images/bar/basket-small.svg') }}">
+            </span>
+        </a>
+        {% endif %}
+
+        {% if tab == 4 %}
+        <a href="/settings" class="nav-item active">
+            <span class="nav-icon active">
+                <img src="{{ url_for('static', filename='images/bar/settings-big.svg') }}">
+            </span>
+        </a>
+        {% else %}
+        <a href="/settings" class="nav-item">
+            <span class="nav-icon">
+                <img src="{{ url_for('static', filename='images/bar/settings-small.svg') }}">
+            </span>
+        </a>
+        {% endif %}
+    </footer>
 </body>
