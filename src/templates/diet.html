@@ -4,4 +4,23 @@
 
 {% block content %}
     <h1>Рацион на день</h1>
+    <div class="recipes-container">
+        {% for name, category, description in recipes_data %}
+            <form method="POST" action="{{ url_for('schedule') }}" class="panel recipe-panel">
+                <input type="hidden" name="recipe_name" value="{{ name }}">
+                <div class="recipe-info">
+                    <p class="ctext recipe-title">{{ name }}</p>
+                    <p class="recipe-desc">{{ description }}</p>
+                </div>
+                
+                <div class="plan-actions">
+                    <span class="plan-label">В план:</span>
+                    <div class="plan-buttons">
+                        <button type="submit" name="plan_type" value="{{ category }}" class="plan-btn">{{ category }}</button>
+                    </div>
+                </div>
+            </form>
+        {% endfor %}
+        {{ answer }}
+    </div>
 {% endblock %}
