@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | GYD</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="container fullh">
+    <div class="centrer">
+        <form method="POST" class="loginform">
+            <h1>Регистрация</h1>
+            
+            {% if error %}
+                <div class="error-message">{{ error }}</div>
+            {% endif %}
+            
+            <input type="text" id="username" name="username" class="field" placeholder="Имя пользователя" required autocomplete="username">
+            <input type="password" id="password" name="password" class="field" placeholder="Пароль" required autocomplete="new-password">
+            <input type="number" id="age" name="age" class="field" placeholder="Возраст" required min="1">
+            
+            <select id="gender" name="gender" class="field" required>
+                <option value="male" selected>Мужской</option>
+                <option value="female">Женский</option>
+            </select>
+            
+            <input type="number" step="0.1" id="weight" name="weight" class="field" placeholder="Вес (кг)" required min="1">
+            <input type="number" id="height" name="height" class="field" placeholder="Рост (см)" required min="50">
+            
+            <select id="activity" name="activity" class="field" required>
+                <option value="sedentary" selected>Сидячий</option>
+                <option value="light">Легкая активность</option>
+                <option value="moderate">Средняя активность</option>
+                <option value="active">Высокая активность</option>
+            </select>
+
+            <button type="submit" class="field">Зарегистрироваться</button>
+        </form>
+    </div>
+</body>
+</html>

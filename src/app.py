@@ -41,12 +41,36 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if username == "q" and password == "123":
+        if username == "alex" and password == "123":
             return redirect(url_for('products'))
         else:
             error_text = "Неверный логин или пароль"
             return render_template('login.html', error=error_text)
         
     return render_template("login.html")
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        age = request.form.get('age')
+        gender = request.form.get('gender')
+        weight = request.form.get('weight')
+        height = request.form.get('height')
+        activity = request.form.get('activity')
+
+        if not all([username, password, age, gender, weight, height, activity]):
+            return render_template('register.html', error="Пожалуйста, заполните все поля.")
+
+        try:
+            age = int(age)
+            weight = float(weight)
+            height = int(height)
+        except ValueError:
+            return render_template('register.html', error="Некорректный формат числовых полей.")
+
+        return redirect(url_for('login'))
+    return render_template("register.html")
 
 asgi_app = WsgiToAsgi(app)
